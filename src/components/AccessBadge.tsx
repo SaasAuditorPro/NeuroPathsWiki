@@ -1,8 +1,8 @@
 import type { AccessType } from '@/lib/types'
 
 const labels: Record<AccessType, string> = {
-  national: 'UK-wide',
-  local: 'Local',
+  national: 'Available everywhere',
+  local: 'Local area',
   online: 'Online',
 }
 

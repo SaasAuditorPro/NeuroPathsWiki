@@ -48,14 +48,14 @@ const COST_OPTIONS: { value: CostType | ''; label: string }[] = [
   { value: 'free', label: 'Free' },
   { value: 'paid', label: 'Paid' },
   { value: 'mixed', label: 'Free & paid' },
-  { value: 'means_tested', label: 'Means tested' },
+  { value: 'means_tested', label: 'Income-based' },
 ]
 
 const ACCESS_OPTIONS: { value: AccessType | ''; label: string }[] = [
   { value: '', label: 'Any location' },
-  { value: 'national', label: 'UK-wide' },
+  { value: 'national', label: 'Available everywhere' },
   { value: 'online', label: 'Online' },
-  { value: 'local', label: 'Local' },
+  { value: 'local', label: 'Local area' },
 ]
 
 export default async function CategoryPage({ params, searchParams }: Props) {

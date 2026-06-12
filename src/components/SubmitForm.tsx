@@ -153,7 +153,7 @@ export default function SubmitForm() {
               <option value="free">Free</option>
               <option value="paid">Paid</option>
               <option value="mixed">Free & paid options</option>
-              <option value="means_tested">Means tested</option>
+              <option value="means_tested">Income-based</option>
             </select>
           </div>
 
@@ -168,9 +168,9 @@ export default function SubmitForm() {
               style={inputStyle}
             >
               <option value="">Not sure</option>
-              <option value="national">UK-wide</option>
+              <option value="national">Available everywhere</option>
               <option value="online">Online only</option>
-              <option value="local">Local</option>
+              <option value="local">Local area</option>
             </select>
           </div>
         </div>

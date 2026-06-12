@@ -4,7 +4,7 @@ const labels: Record<CostType, string> = {
   free: 'Free',
   paid: 'Paid',
   mixed: 'Free & paid',
-  means_tested: 'Means tested',
+  means_tested: 'Income-based',
 }
 
 const styles: Record<CostType, React.CSSProperties> = {
