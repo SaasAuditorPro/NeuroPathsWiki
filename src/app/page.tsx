@@ -5,7 +5,7 @@ import ListingCard from '@/components/ListingCard'
 import SearchBar from '@/components/SearchBar'
 import Link from 'next/link'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 async function getCategories(): Promise<Category[]> {
   const { data } = await supabase
