@@ -3,52 +3,21 @@ import type { Category } from '@/lib/types'
 
 const crisisSlug = 'crisis-support'
 
-// Curated Unsplash images per category slug — calm, minimal, neurodivergent-affirming
-const categoryImages: Record<string, { id: string; alt: string }> = {
-  'benefits-money': {
-    id: 'photo-1554224155-6726b3ff858f',
-    alt: '',
-  },
-  'diagnosis-assessment': {
-    id: 'photo-1434030216411-0b793f4b4173',
-    alt: '',
-  },
-  'mental-health': {
-    id: 'photo-1506905925346-21bda4d32df4',
-    alt: '',
-  },
-  'community-social': {
-    id: 'photo-1529156069898-49953e39b3ac',
-    alt: '',
-  },
-  'workplace-rights': {
-    id: 'photo-1497366216548-37526070297c',
-    alt: '',
-  },
-  'physical-wellbeing': {
-    id: 'photo-1476480862126-209bfaa8edc8',
-    alt: '',
-  },
-  'tools-resources': {
-    id: 'photo-1499750310107-5fef28a66643',
-    alt: '',
-  },
-  'crisis-support': {
-    id: 'photo-1518531933037-91b2f5f229cc',
-    alt: '',
-  },
-  'parents-carers': {
-    id: 'photo-1536640712-4d4c36ff0e4e',
-    alt: '',
-  },
+const categoryImages: Record<string, string> = {
+  'benefits-money':      'https://source.unsplash.com/featured/600x200/?documents,help',
+  'diagnosis-assessment':'https://source.unsplash.com/featured/600x200/?doctor,consultation',
+  'mental-health':       'https://source.unsplash.com/featured/600x200/?calm,peaceful,person',
+  'community-social':    'https://source.unsplash.com/featured/600x200/?people,together,warm',
+  'workplace-rights':    'https://source.unsplash.com/featured/600x200/?office,desk,natural+light',
+  'physical-wellbeing':  'https://source.unsplash.com/featured/600x200/?walking,nature',
+  'tools-resources':     'https://source.unsplash.com/featured/600x200/?laptop,notebook,organised',
+  'crisis-support':      'https://source.unsplash.com/featured/600x200/?calm,water,sunset',
+  'parents-carers':      'https://source.unsplash.com/featured/600x200/?parent,child,hands',
 }
 
 export default function CategoryTile({ category }: { category: Category }) {
   const isCrisis = category.slug === crisisSlug
-  const img = categoryImages[category.slug]
-  const imgUrl = img
-    ? `https://images.unsplash.com/${img.id}?w=600&h=200&fit=crop&crop=center&q=70&auto=format`
-    : null
+  const imgUrl = categoryImages[category.slug]
 
   return (
     <Link
@@ -59,7 +28,6 @@ export default function CategoryTile({ category }: { category: Category }) {
         backgroundColor: isCrisis ? '#FDF2F2' : '#fff',
       }}
     >
-      {/* Image strip */}
       {imgUrl && (
         <div className="relative h-28 overflow-hidden">
           <img
@@ -74,7 +42,6 @@ export default function CategoryTile({ category }: { category: Category }) {
             }}
             loading="lazy"
           />
-          {/* Soft overlay to keep brand palette */}
           <div
             className="absolute inset-0"
             style={{
