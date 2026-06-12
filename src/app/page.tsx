@@ -12,6 +12,7 @@ async function getCategories(): Promise<Category[]> {
     .from('categories')
     .select('*')
     .order('display_order')
+    .limit(100)
   return data ?? []
 }
 
