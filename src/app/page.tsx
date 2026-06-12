@@ -33,10 +33,23 @@ export default async function HomePage() {
     <>
       {/* Hero */}
       <section
-        className="px-6 pt-16 pb-14 text-center"
+        className="relative px-6 pt-16 pb-14 text-center overflow-hidden"
         style={{ backgroundColor: 'var(--accent-light)' }}
       >
-        <div className="max-w-2xl mx-auto">
+        {/* Background image with soft overlay */}
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1400&h=600&fit=crop&crop=center&q=60&auto=format"
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ filter: 'saturate(0.3) brightness(1.1)' }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to bottom, rgba(235,244,244,0.88) 0%, rgba(235,244,244,0.96) 100%)' }}
+          />
+        </div>
+        <div className="relative z-10 max-w-2xl mx-auto">
           <h1 className="text-4xl font-bold leading-tight mb-4" style={{ color: 'var(--text)' }}>
             Everything in one place.
           </h1>
