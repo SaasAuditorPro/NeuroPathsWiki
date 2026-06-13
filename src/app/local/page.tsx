@@ -64,10 +64,16 @@ export const regions = [
     counties: 'Norfolk, Suffolk, Cambridgeshire, Bedfordshire, Lincolnshire, Oxfordshire, Buckinghamshire',
   },
   {
+    slug: 'south-west',
+    name: 'South West',
+    color: '#7A5A48',
+    counties: 'Devon, Cornwall, Somerset, Dorset, Wiltshire, Gloucestershire, Bristol',
+  },
+  {
     slug: 'london-home-counties',
     name: 'London, Home Counties & Hampshire',
     color: '#4A6B6B',
-    counties: 'London, Kent, Surrey, Sussex, Essex, Hertfordshire, Berkshire, Hampshire, Dorset, Wiltshire, Somerset, Devon, Cornwall, Gloucestershire, Bristol',
+    counties: 'London, Kent, Surrey, Sussex, Essex, Hertfordshire, Berkshire, Hampshire, Oxfordshire, Buckinghamshire',
   },
 ]
 

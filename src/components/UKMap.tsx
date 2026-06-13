@@ -11,8 +11,7 @@ interface RegionConfig {
 }
 
 // SVG viewBox "0 0 300 480"
-// Geographically approximate paths for each region
-// Adjacent regions share boundary coordinates
+// Geographically approximate paths — adjacent regions share boundary points
 const regionPaths: Record<string, string> = {
   'scotland':
     'M 80,5 L 228,5 L 260,48 L 250,118 L 220,168 L 192,178 L 158,177 L 122,182 L 100,171 L 78,157 L 70,117 Z',
@@ -32,11 +31,12 @@ const regionPaths: Record<string, string> = {
     'M 62,248 L 95,235 L 90,260 L 90,300 L 95,326 L 115,340 L 113,372 L 95,393 L 70,385 L 46,358 L 44,318 L 46,277 L 55,258 Z',
   'east-of-england':
     'M 202,318 L 248,308 L 262,340 L 272,390 L 250,418 L 220,423 L 196,407 L 182,382 L 173,357 L 195,372 L 218,367 L 235,347 Z',
+  'south-west':
+    'M 95,393 L 113,372 L 115,368 L 112,392 L 108,418 L 112,442 L 128,450 L 108,458 L 84,460 L 58,454 L 38,442 L 26,428 L 28,408 L 36,390 L 46,375 L 60,370 L 76,378 L 88,387 Z',
   'london-home-counties':
-    'M 115,340 L 140,347 L 160,337 L 173,357 L 182,382 L 196,407 L 182,428 L 155,447 L 125,447 L 98,430 L 82,408 L 75,388 L 70,385 L 95,393 L 113,372 Z',
+    'M 115,340 L 140,347 L 160,337 L 173,357 L 182,382 L 196,407 L 182,428 L 155,447 L 128,450 L 112,442 L 108,418 L 112,392 L 115,368 L 113,372 Z',
 }
 
-// Approximate label positions (cx, cy) for each region
 const labelPositions: Record<string, [number, number]> = {
   'scotland':           [165,  82],
   'northern-ireland':   [ 48, 158],
@@ -47,7 +47,8 @@ const labelPositions: Record<string, [number, number]> = {
   'east-midlands':      [195, 330],
   'wales':              [ 75, 318],
   'east-of-england':    [228, 375],
-  'london-home-counties':[138, 408],
+  'south-west':         [ 68, 432],
+  'london-home-counties':[150, 408],
 }
 
 export default function UKMap({ regions }: { regions: RegionConfig[] }) {
@@ -94,8 +95,6 @@ export default function UKMap({ regions }: { regions: RegionConfig[] }) {
         {regions.map(region => {
           const pos = labelPositions[region.slug]
           if (!pos) return null
-          const isLong = region.slug === 'london-home-counties' || region.slug === 'east-of-england'
-          const lines = isLong ? region.name.split(',')[0].trim().split(' & ')[0] : region.name
           return (
             <text
               key={`label-${region.slug}`}
@@ -103,7 +102,7 @@ export default function UKMap({ regions }: { regions: RegionConfig[] }) {
               y={pos[1]}
               textAnchor="middle"
               fill="white"
-              fontSize={region.slug === 'northern-ireland' ? 6 : region.slug === 'london-home-counties' || region.slug === 'east-of-england' ? 7 : 8}
+              fontSize={region.slug === 'northern-ireland' || region.slug === 'london-home-counties' || region.slug === 'east-of-england' ? 7 : 8}
               fontWeight="600"
               fontFamily="Inter, system-ui, sans-serif"
               style={{ pointerEvents: 'none', userSelect: 'none' }}
@@ -144,11 +143,14 @@ export default function UKMap({ regions }: { regions: RegionConfig[] }) {
                   <tspan x={pos[0]} dy="9">West</tspan>
                 </>
               ) : region.slug === 'northern-ireland' ? (
+                <tspan>N. Ireland</tspan>
+              ) : region.slug === 'south-west' ? (
                 <>
-                  <tspan x={pos[0]} dy="0">N. Ireland</tspan>
+                  <tspan x={pos[0]} dy="0">South</tspan>
+                  <tspan x={pos[0]} dy="9">West</tspan>
                 </>
               ) : (
-                <tspan>{lines}</tspan>
+                <tspan>{region.name}</tspan>
               )}
             </text>
           )
