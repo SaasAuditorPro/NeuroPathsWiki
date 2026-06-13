@@ -3,22 +3,27 @@ import type { Category } from '@/lib/types'
 
 const crisisSlug = 'crisis-support'
 
-const categoryImages: Record<string, string> = {
-  'benefits-money':      'https://source.unsplash.com/featured/600x200/?documents,help',
-  'diagnosis-assessment':'https://source.unsplash.com/featured/600x200/?doctor,consultation',
-  'mental-health':       'https://source.unsplash.com/featured/600x200/?calm,peaceful,person',
-  'community-social':    'https://source.unsplash.com/featured/600x200/?people,together,warm',
-  'workplace-rights':    'https://source.unsplash.com/featured/600x200/?office,desk,natural+light',
-  'physical-wellbeing':  'https://source.unsplash.com/featured/600x200/?walking,nature',
-  'tools-resources':     'https://source.unsplash.com/featured/600x200/?laptop,notebook,organised',
-  'crisis-support':      'https://source.unsplash.com/featured/600x200/?calm,water,sunset',
-  'parents-carers':      'https://source.unsplash.com/featured/600x200/?parent,child,hands',
-  'addiction-recovery':  'https://source.unsplash.com/featured/600x200/?recovery,hope,sunrise',
+// Specific Unsplash photo IDs — reliable CDN URLs, no deprecated source.unsplash.com
+const categoryImages: Record<string, { id: string; credit: string }> = {
+  'benefits-money':      { id: '1554224155-6726b3ff858f', credit: 'Kelly Sikkema' },
+  'diagnosis-assessment':{ id: '1559757148-5c350d0d3c56', credit: 'Online Marketing' },
+  'mental-health':       { id: '1499209974431-9dddcece3a68', credit: 'Radu Florin' },
+  'community-social':    { id: '1529156069898-49953e39b3ac', credit: 'Helena Lopes' },
+  'workplace-rights':    { id: '1497366216548-37526070297c', credit: 'Alex Kotliarskyi' },
+  'physical-wellbeing':  { id: '1476480862126-209bfaa8edc8', credit: 'Jenny Hill' },
+  'tools-resources':     { id: '1499750310107-5fef28a66643', credit: 'Andrew Neel' },
+  'crisis-support':      { id: '1518495973542-4542adad0947', credit: 'Fabian Oelkers' },
+  'parents-carers':      { id: '1536640712-4d4c36ff0e4e', credit: 'Picsea' },
+  'addiction-recovery':  { id: '1470770841072-f978cf4d019e', credit: 'Dawid Zawiła' },
+}
+
+function imgUrl(id: string) {
+  return `https://images.unsplash.com/photo-${id}?w=600&h=200&fit=crop&crop=center&q=70&auto=format`
 }
 
 export default function CategoryTile({ category }: { category: Category }) {
   const isCrisis = category.slug === crisisSlug
-  const imgUrl = categoryImages[category.slug]
+  const img = categoryImages[category.slug]
 
   return (
     <Link
@@ -29,17 +34,17 @@ export default function CategoryTile({ category }: { category: Category }) {
         backgroundColor: isCrisis ? '#FDF2F2' : '#fff',
       }}
     >
-      {imgUrl && (
+      {img && (
         <div className="relative h-28 overflow-hidden">
           <img
-            src={imgUrl}
+            src={imgUrl(img.id)}
             alt=""
             aria-hidden="true"
             className="w-full h-full object-cover"
             style={{
               filter: isCrisis
                 ? 'saturate(0.4) brightness(0.85)'
-                : 'saturate(0.6) brightness(0.95)',
+                : 'saturate(0.55) brightness(0.97)',
             }}
             loading="lazy"
           />
@@ -47,8 +52,8 @@ export default function CategoryTile({ category }: { category: Category }) {
             className="absolute inset-0"
             style={{
               background: isCrisis
-                ? 'linear-gradient(to bottom, rgba(192,57,43,0.15), rgba(192,57,43,0.05))'
-                : 'linear-gradient(to bottom, rgba(74,124,126,0.18), rgba(250,250,248,0.1))',
+                ? 'linear-gradient(to bottom, rgba(192,57,43,0.12), rgba(192,57,43,0.04))'
+                : 'linear-gradient(to bottom, rgba(74,124,126,0.15), rgba(250,250,248,0.08))',
             }}
             aria-hidden="true"
           />
