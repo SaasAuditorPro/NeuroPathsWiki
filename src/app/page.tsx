@@ -77,7 +77,7 @@ export default async function HomePage() {
             Browse resources by what you need right now.
           </p>
           {categories.length > 0 ? (
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               {categories.map(cat => (
                 <CategoryTile key={cat.id} category={cat} />
               ))}

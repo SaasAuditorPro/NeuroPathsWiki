@@ -13,6 +13,7 @@ const categoryImages: Record<string, string> = {
   'tools-resources':     'https://source.unsplash.com/featured/600x200/?laptop,notebook,organised',
   'crisis-support':      'https://source.unsplash.com/featured/600x200/?calm,water,sunset',
   'parents-carers':      'https://source.unsplash.com/featured/600x200/?parent,child,hands',
+  'addiction-recovery':  'https://source.unsplash.com/featured/600x200/?recovery,hope,sunrise',
 }
 
 export default function CategoryTile({ category }: { category: Category }) {

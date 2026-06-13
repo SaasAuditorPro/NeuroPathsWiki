@@ -57,10 +57,11 @@ export default function Header() {
 
         {/* Nav links */}
         <nav className="flex items-center gap-4 text-sm font-medium flex-shrink-0">
-          <Link href="/category/benefits" className="hover:underline" style={{ color: 'var(--muted)' }}>Benefits</Link>
+          <Link href="/category/benefits-money" className="hover:underline" style={{ color: 'var(--muted)' }}>Benefits</Link>
           <Link href="/category/mental-health" className="hover:underline" style={{ color: 'var(--muted)' }}>Mental health</Link>
-          <Link href="/category/employment" className="hover:underline" style={{ color: 'var(--muted)' }}>Work</Link>
-          <Link href="/category/community" className="hover:underline" style={{ color: 'var(--muted)' }}>Community</Link>
+          <Link href="/category/workplace-rights" className="hover:underline" style={{ color: 'var(--muted)' }}>Work</Link>
+          <Link href="/category/community-social" className="hover:underline" style={{ color: 'var(--muted)' }}>Community</Link>
+          <Link href="/category/addiction-recovery" className="hover:underline" style={{ color: 'var(--muted)' }}>Addiction</Link>
           <Link
             href="/submit"
             className="rounded-lg px-4 py-2 text-sm font-semibold"
