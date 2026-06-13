@@ -25,8 +25,8 @@ const items = [
     ),
   },
   {
-    href: '/category/benefits',
-    label: 'Browse',
+    href: '/local',
+    label: 'Local',
     icon: (
       <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <rect x="3" y="3" width="7" height="7" rx="1" />

@@ -62,6 +62,7 @@ export default function Header() {
           <Link href="/category/workplace-rights" className="hover:underline" style={{ color: 'var(--muted)' }}>Work</Link>
           <Link href="/category/community-social" className="hover:underline" style={{ color: 'var(--muted)' }}>Community</Link>
           <Link href="/category/addiction-recovery" className="hover:underline" style={{ color: 'var(--muted)' }}>Addiction</Link>
+          <Link href="/local" className="hover:underline" style={{ color: 'var(--muted)' }}>Local</Link>
           <Link
             href="/submit"
             className="rounded-lg px-4 py-2 text-sm font-semibold"
