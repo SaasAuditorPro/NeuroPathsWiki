@@ -7,12 +7,12 @@ const crisisSlug = 'crisis-support'
 const categoryImages: Record<string, { id: string; credit: string }> = {
   'benefits-money':      { id: '1554224155-6726b3ff858f', credit: 'Kelly Sikkema' },
   'diagnosis-assessment':{ id: '1559757148-5c350d0d3c56', credit: 'Online Marketing' },
-  'mental-health':       { id: '1499209974431-9dddcece3a68', credit: 'Radu Florin' },
+  'mental-health':       { id: '1518531933037-91b2f5f229cc', credit: 'Luca Bravo' },
   'community-social':    { id: '1529156069898-49953e39b3ac', credit: 'Helena Lopes' },
   'workplace-rights':    { id: '1497366216548-37526070297c', credit: 'Alex Kotliarskyi' },
   'physical-wellbeing':  { id: '1476480862126-209bfaa8edc8', credit: 'Jenny Hill' },
   'tools-resources':     { id: '1499750310107-5fef28a66643', credit: 'Andrew Neel' },
-  'crisis-support':      { id: '1518495973542-4542adad0947', credit: 'Fabian Oelkers' },
+  'crisis-support':      { id: '1506905925346-21bda4d32df4', credit: 'Samuel Ferrara' },
   'parents-carers':      { id: '1536640712-4d4c36ff0e4e', credit: 'Picsea' },
   'addiction-recovery':  { id: '1470770841072-f978cf4d019e', credit: 'Dawid Zawiła' },
 }
